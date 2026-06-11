@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>satriyo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #0d0515;
+        color: #f1e6ff;
+        min-height: 100vh;
+    }
+
+    /* navigation bar */
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 8%;
+        background: transparent;
+        backdrop-filter: none;
+        border-bottom: 1px solid transparent;
+        z-index: 1000;
+        list-style: none;
+        transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+    }
+
+    /* navbar saat scroll */
+    .nav.nav-scrolled {
+        background: rgba(13, 5, 21, 0.92);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(241, 230, 255, 0.06);
+    }
+
+    .name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #e0143c, #6366f1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 1px;
+    }
+
+    .nav-bar {
+        display: inline;
+        margin-left: 32px;
+    }
+
+    .nav-bar a {
+        color: #c4b5d4;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+    }
+
+    .nav-bar a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #e0143c;
+        transition: width 0.3s;
+    }
+
+    .nav-bar a:hover {
+        color: #f1e6ff;
+    }
+
+    .nav-bar a:hover::after {
+        width: 100%;
+    }
+
+    /* background */
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at 20% 50%, rgba(224, 20, 60, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 50%, rgba(99, 102, 241, 0.06) 0%, transparent 50%);
+        z-index: -1;
+    }
+
+    /* home section */
+    .Home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 4% 60px;
+        position: relative;
+        background: url('bg.jpg') center center / cover no-repeat;
+    }
+
+    /* overlay gelap di atas background agar teks terbaca */
+    .Home::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(13, 5, 21, 0.60);
+        z-index: 0;
+    }
+
+    .Home>* {
+        position: relative;
+        z-index: 1;
+    }
+
+    .content-home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        max-width: 1400px;
+    }
+
+    .hero-row {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        width: 100%;
+        justify-content: flex-start;
+        padding-left: 6%;
+    }
+
+    .bio {
+        text-align: left;
+        flex: 1;
+        max-width: 700px;
+        padding-left: 40px;
+        position: relative;
+        top: -60px;
+        right: 20px;
+    }
+
+    .bio h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.2;
+        color: #f1e6ff;
+    }
+
+    .text-typing {
+        display: inline-block;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #f472b6;
+        border-right: 2px solid #f472b6;
+        padding-right: 6px;
+        animation: blink 0.75s step-end infinite;
+        margin-top: 12px;
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+    .bio p {
+        margin-top: 24px;
+        font-size: 1.15rem;
+        color: #c4b5d4;
+        line-height: 1.8;
+        max-width: 680px;
+    }
+
+    /* profile photo */
+    .photo-profile {
+        display: flex;
+        justify-content: center;
+    }
+
+    .box-profile {
+        width: 420px;
+        height: 540px;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 3px solid #e0143c;
+        box-shadow: 0 0 60px rgba(224, 20, 60, 0.3);
+        transition: transform 0.4s, box-shadow 0.4s;
+        flex-shrink: 0;
+    }
+
+    .box-profile:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 60px rgba(224, 20, 60, 0.4);
+    }
+
+    .box-profile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* project stats */
+    .project {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -200px;
+        right: -30px;
+    }
+
+    .container-project {
+        display: flex;
+        gap: 48px;
+    }
+
+    .web,
+    .game {
+        text-align: center;
+        padding: 16px 32px;
+        background: rgba(241, 230, 255, 0.04);
+        border-radius: 12px;
+        border: 1px solid rgba(241, 230, 255, 0.06);
+        transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .web:hover,
+    .game:hover {
+        transform: translateY(-4px);
+        border-color: rgba(224, 20, 60, 0.3);
+    }
+
+    .web h2,
+    .game h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #e0143c;
+    }
+
+    .web p,
+    .game p {
+        font-size: 0.9rem;
+        color: #c4b5d4;
+        margin-top: 4px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* buttons */
+    .button-home {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        position: relative;
+        top: -170px;
+        right: -30px;
+        flex-wrap: wrap;
+    }
+
+    .about-me button,
+    .contact button {
+        padding: 12px 36px;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+        letter-spacing: 0.5px;
+    }
+
+    .about-me button {
+        background: linear-gradient(135deg, #e0143c, #6366f1);
+        color: #f1e6ff;
+    }
+
+    .about-me button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(224, 20, 60, 0.35);
+    }
+
+    .contact button {
+        background: transparent;
+        color: #f472b6;
+        border: 2px solid #f472b6;
+    }
+
+    .contact button:hover {
+        background: #f472b6;
+        color: #0d0515;
+        transform: translateY(-2px);
+    }
+
+    /* about section */
+    .about {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 8%;
+    }
+
+    /* responsive */
+    @media (max-width: 768px) {
+        .nav {
+            padding: 14px 5%;
+        }
+
+        .nav-bar {
+            margin-left: 16px;
+        }
+
+        .nav-bar a {
+            font-size: 0.85rem;
+        }
+
+        .hero-row {
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .bio {
+            text-align: center;
+        }
+
+        .bio h1 {
+            font-size: 2rem;
+        }
+
+        .bio p {
+            font-size: 0.9rem;
+        }
+
+        .box-profile {
+            width: 170px;
+            height: 200px;
+        }
+
+        .container-project {
+            gap: 24px;
+        }
+
+        .web,
+        .game {
+            padding: 12px 24px;
+        }
+
+        .button-home {
+            gap: 14px;
+        }
+
+        .about-me button,
+        .contact button {
+            padding: 10px 28px;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .nav {
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .bio h1 {
+            font-size: 1.6rem;
+        }
+
+        .box-profile {
+            width: 140px;
+            height: 170px;
+        }
+    }
+
+    /* ===================== ABOUT SECTION ===================== */
+
+    .about {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 8% 80px;
+        background: #0d0515;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* subtle gradient glow di background */
+    .about::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(224, 20, 60, 0.07) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .about::after {
+        content: '';
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .content-about {
+        width: 100%;
+        max-width: 1200px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* --- Header --- */
+    .about-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .about-h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #e0143c, #f472b6, #6366f1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 1px;
+        text-transform: lowercase;
+    }
+
+    .about-divider {
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #e0143c, #6366f1);
+        margin: 16px auto 0;
+        border-radius: 99px;
+    }
+
+    /* --- Grid dua kolom --- */
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+    }
+
+    /* --- Kolom kiri: bio --- */
+    .about-bio-col {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .about-p {
+        font-size: 1.05rem;
+        color: #c4b5d4;
+        line-height: 1.9;
+    }
+
+    .about-p strong {
+        color: #f1e6ff;
+        font-weight: 700;
+    }
+
+    .about-p em {
+        color: #f472b6;
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    /* Skill badges */
+    .about-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+    }
+
+    .skill-badge {
+        padding: 6px 18px;
+        border-radius: 99px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background: rgba(224, 20, 60, 0.1);
+        border: 1px solid rgba(224, 20, 60, 0.3);
+        color: #f472b6;
+        letter-spacing: 0.5px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .skill-badge:hover {
+        background: rgba(224, 20, 60, 0.22);
+        transform: translateY(-2px);
+    }
+
+    /* --- Kolom kanan: timeline --- */
+    .about-timeline-col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .timeline-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #f1e6ff;
+        margin-bottom: 32px;
+        letter-spacing: 0.5px;
+    }
+
+    /* Kontainer timeline dengan garis vertikal */
+    .timeline {
+        position: relative;
+        padding-left: 32px;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        background: linear-gradient(180deg, #e0143c, #6366f1);
+        border-radius: 99px;
+    }
+
+    /* Tiap item timeline */
+    .timeline-item {
+        position: relative;
+        margin-bottom: 32px;
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Dot di garis */
+    .timeline-dot {
+        position: absolute;
+        left: -28px;
+        top: 14px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #3a0d20;
+        border: 2px solid #e0143c;
+        transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .timeline-item.active .timeline-dot {
+        background: #e0143c;
+        box-shadow: 0 0 12px rgba(224, 20, 60, 0.7);
+    }
+
+    .timeline-item:hover .timeline-dot {
+        background: #e0143c;
+        box-shadow: 0 0 10px rgba(224, 20, 60, 0.5);
+    }
+
+    /* Card timeline */
+    .timeline-card {
+        background: rgba(241, 230, 255, 0.04);
+        border: 1px solid rgba(241, 230, 255, 0.08);
+        border-radius: 14px;
+        padding: 18px 22px;
+        transition: border-color 0.3s, background 0.3s, transform 0.3s;
+        position: relative;
+    }
+
+    .timeline-item:hover .timeline-card {
+        border-color: rgba(224, 20, 60, 0.3);
+        background: rgba(224, 20, 60, 0.05);
+        transform: translateX(4px);
+    }
+
+    .timeline-item.active .timeline-card {
+        border-color: rgba(224, 20, 60, 0.4);
+        background: rgba(224, 20, 60, 0.07);
+    }
+
+    .timeline-year {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #e0143c;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+
+    .timeline-school {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #f1e6ff;
+        margin-bottom: 4px;
+    }
+
+    .timeline-desc {
+        font-size: 0.88rem;
+        color: #9090a8;
+        line-height: 1.6;
+    }
+
+    /* Badge "Sekarang" */
+    .timeline-badge {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 3px 12px;
+        border-radius: 99px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #e0143c, #6366f1);
+        color: #fff;
+        letter-spacing: 0.5px;
+    }
+
+    /* Responsive about */
+    @media (max-width: 900px) {
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .about-h2 {
+            font-size: 2.2rem;
+        }
+
+        .about {
+            padding: 80px 5% 60px;
+        }
+    }
+
+    /* ===================== CONTACT SECTION ===================== */
+
+    #contact {
+        background: #0d0515;
+        padding: 100px 8% 120px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .content-contact {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .contact-header {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .contact-header h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #e0143c, #f472b6, #6366f1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 1px;
+        text-transform: lowercase;
+    }
+
+    .contact-divider {
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #e0143c, #6366f1);
+        margin: 16px auto 0;
+        border-radius: 99px;
+    }
+
+    .sosmed-contact {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-sosmed {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+        width: 100%;
+        perspective: 1000px;
+    }
+
+    /* Base Card Styling with starting rotation/scale for the entry animation */
+    .sosmed-item {
+        background: rgba(241, 230, 255, 0.03);
+        border: 1px solid rgba(241, 230, 255, 0.06);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        position: relative;
+
+        /* Entrance animation initial state: scaled down, translated down, and rotated */
+        opacity: 0;
+        transform: translateY(120px) scale(0.3) rotate(-180deg);
+        transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1),
+            opacity 1.2s cubic-bezier(0.19, 1, 0.22, 1),
+            border-color 0.4s ease,
+            box-shadow 0.4s ease;
+    }
+
+    /* Active Animation State */
+    .card-sosmed.animate-in .sosmed-item {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+
+    /* Staggered transition-delays for card entries */
+    .sosmed-item:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    .sosmed-item:nth-child(2) {
+        transition-delay: 0.25s;
+    }
+
+    .sosmed-item:nth-child(3) {
+        transition-delay: 0.4s;
+    }
+
+    .sosmed-item:nth-child(4) {
+        transition-delay: 0.55s;
+    }
+
+    .sosmed-item:nth-child(5) {
+        transition-delay: 0.7s;
+    }
+
+    .sosmed-item a {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Card Banner */
+    .card-banner {
+        position: relative;
+        width: 100%;
+        height: 140px;
+        overflow: hidden;
+        background: #110820;
+    }
+
+    .card-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        z-index: 2;
+        position: relative;
+    }
+
+    /* Fallback banner backgrounds with specific brand-matched gradient styles */
+    .banner-fallback {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        transition: opacity 0.5s ease;
+    }
+
+    .instagram .banner-fallback {
+        background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        opacity: 0.8;
+    }
+
+    .facebook .banner-fallback {
+        background: linear-gradient(135deg, #1877f2, #0056b3);
+        opacity: 0.7;
+    }
+
+    .tiktok .banner-fallback {
+        background: linear-gradient(135deg, #010101, #00f2fe, #fe0979);
+        opacity: 0.85;
+    }
+
+    .youtube .banner-fallback {
+        background: linear-gradient(135deg, #ff0000, #990000);
+        opacity: 0.85;
+    }
+
+    .github .banner-fallback {
+        background: linear-gradient(135deg, #24292e, #0f1115);
+        opacity: 0.9;
+    }
+
+    .sosmed-item:hover .card-banner img {
+        transform: scale(1.1);
+    }
+
+    /* Card Body */
+    .card-body {
+        padding: 24px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        background: rgba(241, 230, 255, 0.02);
+        flex-grow: 1;
+        position: relative;
+        z-index: 2;
+        border-top: 1px solid rgba(241, 230, 255, 0.04);
+    }
+
+    .card-body i {
+        font-size: 2.2rem;
+        color: rgba(241, 230, 255, 0.8);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.4s ease;
+    }
+
+    .card-body p {
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+        color: #c4b5d4;
+        transition: color 0.4s ease;
+    }
+
+    /* Interactive Hover Styling */
+    .sosmed-item:hover {
+        transform: translateY(-10px) rotateY(6deg);
+    }
+
+    .instagram:hover {
+        border-color: rgba(228, 64, 95, 0.4);
+        box-shadow: 0 15px 35px rgba(228, 64, 95, 0.25);
+    }
+
+    .instagram:hover .card-body i {
+        color: #e4405f;
+        transform: scale(1.15) rotate(10deg);
+    }
+
+    .instagram:hover .card-body p {
+        color: #e4405f;
+    }
+
+    .facebook:hover {
+        border-color: rgba(24, 119, 242, 0.4);
+        box-shadow: 0 15px 35px rgba(24, 119, 242, 0.25);
+    }
+
+    .facebook:hover .card-body i {
+        color: #1877f2;
+        transform: scale(1.15) rotate(-10deg);
+    }
+
+    .facebook:hover .card-body p {
+        color: #1877f2;
+    }
+
+    .tiktok:hover {
+        border-color: rgba(0, 242, 254, 0.4);
+        box-shadow: 0 15px 35px rgba(254, 9, 121, 0.25);
+    }
+
+    .tiktok:hover .card-body i {
+        color: #00f2fe;
+        filter: drop-shadow(2px 0px 0px #fe0979);
+        transform: scale(1.15);
+    }
+
+    .tiktok:hover .card-body p {
+        color: #00f2fe;
+    }
+
+    .youtube:hover {
+        border-color: rgba(255, 0, 0, 0.4);
+        box-shadow: 0 15px 35px rgba(255, 0, 0, 0.25);
+    }
+
+    .youtube:hover .card-body i {
+        color: #ff0000;
+        transform: scale(1.15) translateY(-2px);
+    }
+
+    .youtube:hover .card-body p {
+        color: #ff0000;
+    }
+
+    .github:hover {
+        border-color: rgba(99, 102, 241, 0.4);
+        box-shadow: 0 15px 35px rgba(99, 102, 241, 0.25);
+    }
+
+    .github:hover .card-body i {
+        color: #f1e6ff;
+        transform: scale(1.15) rotate(360deg);
+    }
+
+    .github:hover .card-body p {
+        color: #818cf8;
+    }
+
+    @media (max-width: 768px) {
+        .card-sosmed {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+    }
+</style>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="nav">
+        <div class="name">satriyo</div>
+        <ul style="display: flex; list-style: none;">
+            <li class="nav-bar"><a href="#Home">Home</a></li>
+            <li class="nav-bar"><a href="#about">About</a></li>
+            <li class="nav-bar"><a href="#contact">Contact</a></li>
+            <li class="nav-bar"><a href="#project">Project</a></li>
+        </ul>
+    </nav>
+
+    <!-- background effect -->
+    <div class="background"></div>
+
+    <!-- home -->
+    <section class="Home" id="Home">
+        <div class="content-home">
+            <div class="hero-row">
+                <div class="photo-profile">
+                    <div class="box-profile">
+                        <img src="photos.jpeg" alt="profile photo">
+                    </div>
+                </div>
+                <div class="bio">
+                    <h1>hi! i'm satriyo</h1>
+                    <span class="text-typing">game development beginner and student</span>
+                    <p>Hi nama saya Muhammad Satriyo Wicaksono biasa dipanggil satriyo, saya adalah seorang game
+                        development beginner dan juga seorang pelajar di SMK Telkom Purwokerto dengan jurusan
+                        pengembangan game.</p>
+                </div>
+            </div>
+            <div class="project">
+                <div class="container-project">
+                    <div class="web">
+                        <h2>1</h2>
+                        <p>website</p>
+                    </div>
+                    <div class="game">
+                        <h2>1</h2>
+                        <p>game</p>
+                    </div>
+                </div>
+            </div>
+            <div class="button-home">
+                <a href="#about">
+                    <div class="about-me"><button>about me</button></div>
+                </a>
+                <a href="#contact">
+                    <div class="contact"><button>contact me</button></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- about me -->
+    <section class="about" id="about">
+        <div class="content-about">
+            <!-- judul -->
+            <div class="about-header">
+                <h2 class="about-h2">tentang saya</h2>
+                <div class="about-divider"></div>
+            </div>
+
+            <!-- dua kolom: bio kiri, timeline kanan -->
+            <div class="about-grid">
+                <!-- kolom kiri: bio -->
+                <div class="about-bio-col">
+                    <p class="about-p">
+                        Halo! Nama saya <strong>Muhammad Satriyo Wicaksono</strong>, biasa dipanggil Satriyo.
+                        Saya seorang siswa SMK Telkom Purwokerto jurusan Pengembangan Game yang punya ketertarikan
+                        besar terhadap dunia game dan teknologi.
+                    </p>
+                    <p class="about-p" style="margin-top: 16px;">
+                        Sejak kecil saya sering bermain game seperti <em>Honkai: Star Rail</em> dan
+                        <em>Honor of Kings</em>. Rasa penasaran tentang cara kerja sebuah software dan game
+                        mendorong saya untuk mulai belajar membuat game sendiri.
+                    </p>
+                </div>
+
+                <!-- kolom kanan: timeline pendidikan -->
+                <div class="about-timeline-col">
+                    <h3 class="timeline-title">📚 Riwayat Pendidikan</h3>
+                    <div class="timeline">
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <span class="timeline-year">2013 – 2016</span>
+                                <h4 class="timeline-school">PAUD & TK</h4>
+                                <p class="timeline-desc">Awal perjalanan pendidikan formal.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <span class="timeline-year">2016 – 2022</span>
+                                <h4 class="timeline-school">SDN 2 Adisana</h4>
+                                <p class="timeline-desc">Sekolah Dasar tempat minat teknologi mulai tumbuh.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <span class="timeline-year">2022 – 2025</span>
+                                <h4 class="timeline-school">SMPN 2 Kebasen</h4>
+                                <p class="timeline-desc">Masa SMP, makin aktif bermain & penasaran dengan dunia game.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item active">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <span class="timeline-year">2025 – 2028</span>
+                                <h4 class="timeline-school">SMK Telkom Purwokerto</h4>
+                                <p class="timeline-desc">Jurusan Pengembangan Game — sedang belajar membuat game dari
+                                    nol.</p>
+                                <span class="timeline-badge">Sekarang</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact -->
+    <section class="about" id="contact">
+        <div class="content-contact">
+            <div class="contact-header">
+                <h2>sosial media dan kontak saya</h2>
+                <div class="contact-divider"></div>
+            </div>
+            <div class="sosmed-contact">
+                <div class="card-sosmed">
+                    <!-- Instagram Card -->
+                    <div class="sosmed-item instagram">
+                        <a href="https://instagram.com/satriyow_" target="_blank">
+                            <div class="card-banner">
+                                <img src="instagram-view.jpeg" alt="" class="view-instagram"
+                                    onerror="this.style.display='none';">
+                                <div class="banner-fallback"></div>
+                            </div>
+                            <div class="card-body">
+                                <i class="fa-brands fa-instagram"></i>
+                                <p>instagram</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Facebook Card -->
+                    <div class="sosmed-item facebook">
+                        <a href="https://www.facebook.com/share/1Huxezk3HW/" target="_blank">
+                            <div class="card-banner">
+                                <img src="facebook.jpeg" alt="" class="view-facebook"
+                                    onerror="this.style.display='none';">
+                                <div class="banner-fallback"></div>
+                            </div>
+                            <div class="card-body">
+                                <i class="fa-brands fa-facebook"></i>
+                                <p>facebook</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- TikTok Card -->
+                    <div class="sosmed-item tiktok">
+                        <a href="#" target="_blank">
+                            <div class="card-banner">
+                                <img src="view-tiktok.jpeg" alt="" class="view-tiktok"
+                                    onerror="this.style.display='none';">
+                                <div class="banner-fallback"></div>
+                            </div>
+                            <div class="card-body">
+                                <i class="fa-brands fa-tiktok"></i>
+                                <p>tiktok</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- YouTube Card -->
+                    <div class="sosmed-item youtube">
+                        <a href="#" target="_blank">
+                            <div class="card-banner">
+                                <img src="img/youtube.png" alt="" class="view-youtube"
+                                    onerror="this.style.display='none';">
+                                <div class="banner-fallback"></div>
+                            </div>
+                            <div class="card-body">
+                                <i class="fa-brands fa-youtube"></i>
+                                <p>youtube</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- GitHub Card -->
+                    <div class="sosmed-item github">
+                        <a href="https://github.com/satriyoo09" target="_blank">
+                            <div class="card-banner">
+                                <img src="view-github.png" alt="" class="view-github"
+                                    onerror="this.style.display='none';">
+                                <div class="banner-fallback"></div>
+                            </div>
+                            <div class="card-body">
+                                <i class="fa-brands fa-github"></i>
+                                <p>github</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="Project" id="project">
+
+    </section>
+
+    <script>document.addEventListener('DOMContentLoaded', () => {
+
+            // typing animation
+            const textEl = document.querySelector('.text-typing');
+            const text = 'game development beginner and student';
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function typeEffect() {
+                if (!isDeleting) {
+                    textEl.textContent = text.substring(0, charIndex + 1);
+                    charIndex++;
+                    if (charIndex === text.length) {
+                        setTimeout(typeEffect, 2000);
+                        isDeleting = true;
+                        return;
+                    }
+                    setTimeout(typeEffect, 80);
+                } else {
+                    textEl.textContent = text.substring(0, charIndex - 1);
+                    charIndex--;
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        setTimeout(typeEffect, 400);
+                        return;
+                    }
+                    setTimeout(typeEffect, 40);
+                }
+            }
+
+            typeEffect();
+
+            // navbar scroll effect — transparan di atas, muncul saat scroll
+            const nav = document.querySelector('.nav');
+
+            function handleNavScroll() {
+                if (window.scrollY > 10) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            }
+
+            window.addEventListener('scroll', handleNavScroll);
+            handleNavScroll(); // cek posisi awal
+
+            // smooth scroll for nav links
+            document.querySelectorAll('.nav a[href^="#"]').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // contact cards entry animation (Intersection Observer)
+            const cardSosmed = document.querySelector('.card-sosmed');
+            if (cardSosmed) {
+                const observerOptions = {
+                    root: null,
+                    threshold: 0.15
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            cardSosmed.classList.add('animate-in');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                observer.observe(cardSosmed);
+            }
+        });
+    </script>
+</body>
+
+</html>
