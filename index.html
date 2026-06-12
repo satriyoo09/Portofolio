@@ -926,6 +926,629 @@
             gap: 20px;
         }
     }
+
+    /* ===================== PROJECT SECTION ===================== */
+
+    .Project {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 8% 80px;
+        background: #0d0515;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .Project::before {
+        content: '';
+        position: absolute;
+        bottom: -150px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(circle, rgba(224, 20, 60, 0.06) 0%, transparent 65%);
+        pointer-events: none;
+    }
+
+    .Project::after {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: -200px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 65%);
+        pointer-events: none;
+    }
+
+    .content-project {
+        width: 100%;
+        max-width: 1200px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .project-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .project-header h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #e0143c, #f472b6, #6366f1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 1px;
+        text-transform: lowercase;
+    }
+
+    .project-divider {
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #e0143c, #6366f1);
+        margin: 16px auto 0;
+        border-radius: 99px;
+    }
+
+    /* Carousel Container */
+    .project-carousel {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .project-slider {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        width: 100%;
+    }
+
+    /* Each Project Slide */
+    .project-slide {
+        min-width: 100%;
+        display: flex;
+        gap: 50px;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* Project Image */
+    .project-slide-image {
+        flex: 0 0 45%;
+        max-width: 45%;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(241, 230, 255, 0.08);
+        background: rgba(241, 230, 255, 0.03);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        aspect-ratio: 16 / 10;
+    }
+
+    .project-slide-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .project-slide-image:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Image overlay glow */
+    .project-slide-image::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 50%, rgba(13, 5, 21, 0.6) 100%);
+        pointer-events: none;
+        border-radius: 20px;
+    }
+
+    /* No-image placeholder */
+    .project-slide-image.no-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(224, 20, 60, 0.08), rgba(99, 102, 241, 0.08));
+    }
+
+    .project-slide-image.no-image::before {
+        content: '\f11b';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        font-size: 4rem;
+        color: rgba(241, 230, 255, 0.15);
+        z-index: 1;
+    }
+
+    /* Project Content */
+    .project-slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project-slide-number {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #e0143c;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    .project-slide-title {
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: #f1e6ff;
+        line-height: 1.2;
+        text-transform: capitalize;
+    }
+
+    .project-slide-desc {
+        font-size: 1.05rem;
+        color: #9d8eb5;
+        line-height: 1.85;
+    }
+
+    /* Tags */
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .project-tags li {
+        padding: 5px 16px;
+        border-radius: 99px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        background: rgba(99, 102, 241, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        color: #a5b4fc;
+        letter-spacing: 0.5px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .project-tags li:hover {
+        background: rgba(99, 102, 241, 0.25);
+        transform: translateY(-2px);
+    }
+
+    /* Action Buttons */
+    .project-actions {
+        display: flex;
+        gap: 16px;
+        margin-top: 8px;
+    }
+
+    .project-actions a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 24px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        letter-spacing: 0.3px;
+    }
+
+    .project-actions a.btn-github {
+        background: rgba(241, 230, 255, 0.06);
+        border: 1px solid rgba(241, 230, 255, 0.12);
+        color: #c4b5d4;
+    }
+
+    .project-actions a.btn-github:hover {
+        background: rgba(241, 230, 255, 0.12);
+        border-color: rgba(241, 230, 255, 0.25);
+        color: #f1e6ff;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-actions a.btn-live {
+        background: linear-gradient(135deg, #e0143c, #6366f1);
+        border: none;
+        color: #fff;
+    }
+
+    .project-actions a.btn-live:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(224, 20, 60, 0.4);
+    }
+
+    /* Navigation Arrows */
+    .carousel-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 50px;
+    }
+
+    .carousel-btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: rgba(241, 230, 255, 0.05);
+        border: 1px solid rgba(241, 230, 255, 0.1);
+        color: #c4b5d4;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .carousel-btn:hover {
+        background: rgba(224, 20, 60, 0.15);
+        border-color: rgba(224, 20, 60, 0.4);
+        color: #f1e6ff;
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(224, 20, 60, 0.2);
+    }
+
+    .carousel-btn:active {
+        transform: scale(0.95);
+    }
+
+    /* Dot Indicators */
+    .carousel-dots {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(241, 230, 255, 0.15);
+        border: none;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        padding: 0;
+    }
+
+    .carousel-dot.active {
+        width: 32px;
+        border-radius: 99px;
+        background: linear-gradient(135deg, #e0143c, #6366f1);
+        box-shadow: 0 0 12px rgba(224, 20, 60, 0.5);
+    }
+
+    .carousel-dot:hover:not(.active) {
+        background: rgba(241, 230, 255, 0.3);
+        transform: scale(1.2);
+    }
+
+    /* Counter */
+    .carousel-counter {
+        font-size: 0.85rem;
+        color: #7a6f8a;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+
+    .carousel-counter .current {
+        color: #e0143c;
+        font-size: 1.1rem;
+        font-weight: 800;
+    }
+
+    /* Responsive project */
+    @media (max-width: 900px) {
+        .project-slide {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .project-slide-image {
+            flex: 0 0 auto;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .project-slide-title {
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .Project {
+            padding: 80px 5% 60px;
+        }
+
+        .project-header h2 {
+            font-size: 2.2rem;
+        }
+
+        .project-slide-title {
+            font-size: 1.5rem;
+        }
+
+        .project-actions {
+            flex-direction: column;
+        }
+
+        .carousel-btn {
+            width: 44px;
+            height: 44px;
+            font-size: 1rem;
+        }
+    }
+
+    /* ===================== DOWNLOAD OVERLAY ===================== */
+
+    .download-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(13, 5, 21, 0.85);
+        backdrop-filter: blur(20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .download-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .download-modal {
+        text-align: center;
+        padding: 50px 60px;
+        border-radius: 28px;
+        background: rgba(241, 230, 255, 0.04);
+        border: 1px solid rgba(241, 230, 255, 0.08);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        transform: scale(0.85) translateY(20px);
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        min-width: 380px;
+    }
+
+    .download-overlay.active .download-modal {
+        transform: scale(1) translateY(0);
+    }
+
+    /* Spinner ring */
+    .download-spinner {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 32px;
+        position: relative;
+    }
+
+    .spinner-ring {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 3px solid rgba(241, 230, 255, 0.08);
+        border-top-color: #e0143c;
+        border-right-color: #6366f1;
+        animation: spinRing 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    }
+
+    .spinner-ring::before {
+        content: '';
+        position: absolute;
+        inset: 6px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        border-top-color: #f472b6;
+        border-left-color: #818cf8;
+        animation: spinRing 0.8s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;
+    }
+
+    @keyframes spinRing {
+        to { transform: rotate(360deg); }
+    }
+
+    /* Percentage inside spinner */
+    .spinner-percent {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #f1e6ff;
+        letter-spacing: -0.5px;
+    }
+
+    /* Success state */
+    .download-spinner.success .spinner-ring {
+        animation: none;
+        border-color: #22c55e;
+        border-top-color: #22c55e;
+        border-right-color: #22c55e;
+        transition: border-color 0.4s;
+    }
+
+    .download-spinner.success .spinner-ring::before {
+        animation: none;
+        border-color: transparent;
+    }
+
+    .spinner-check {
+        display: none;
+        font-size: 2.2rem;
+        color: #22c55e;
+    }
+
+    .download-spinner.success .spinner-percent {
+        display: none;
+    }
+
+    .download-spinner.success .spinner-check {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        inset: 0;
+        animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+        0% { transform: scale(0); }
+        100% { transform: scale(1); }
+    }
+
+    /* Error state */
+    .download-spinner.error .spinner-ring {
+        animation: none;
+        border-color: #ef4444;
+        border-top-color: #ef4444;
+        border-right-color: #ef4444;
+    }
+
+    .download-spinner.error .spinner-ring::before {
+        animation: none;
+        border-color: transparent;
+    }
+
+    .download-spinner.error .spinner-percent {
+        display: none;
+    }
+
+    .spinner-error {
+        display: none;
+        font-size: 2.2rem;
+        color: #ef4444;
+    }
+
+    .download-spinner.error .spinner-error {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        inset: 0;
+        animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* File name */
+    .download-filename {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #f1e6ff;
+        margin-bottom: 8px;
+        letter-spacing: 0.3px;
+    }
+
+    .download-status {
+        font-size: 0.9rem;
+        color: #9d8eb5;
+        margin-bottom: 28px;
+        min-height: 1.2em;
+    }
+
+    /* Progress bar */
+    .download-progress-track {
+        width: 100%;
+        height: 6px;
+        border-radius: 99px;
+        background: rgba(241, 230, 255, 0.08);
+        overflow: hidden;
+        margin-bottom: 16px;
+    }
+
+    .download-progress-bar {
+        width: 0%;
+        height: 100%;
+        border-radius: 99px;
+        background: linear-gradient(90deg, #e0143c, #6366f1);
+        transition: width 0.3s ease;
+        position: relative;
+    }
+
+    .download-progress-bar::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+
+    .download-progress-bar.complete {
+        background: linear-gradient(90deg, #22c55e, #10b981);
+    }
+
+    .download-progress-bar.error {
+        background: linear-gradient(90deg, #ef4444, #dc2626);
+    }
+
+    /* Size info */
+    .download-size {
+        font-size: 0.8rem;
+        color: #7a6f8a;
+        letter-spacing: 0.5px;
+    }
+
+    /* Cancel / close button */
+    .download-close {
+        margin-top: 24px;
+        padding: 8px 28px;
+        border-radius: 99px;
+        background: rgba(241, 230, 255, 0.06);
+        border: 1px solid rgba(241, 230, 255, 0.1);
+        color: #c4b5d4;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .download-close:hover {
+        background: rgba(241, 230, 255, 0.12);
+        color: #f1e6ff;
+    }
+
+    /* Download button style */
+    .btn-download {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 24px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        letter-spacing: 0.3px;
+        background: linear-gradient(135deg, #e0143c, #6366f1);
+        border: none;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .btn-download:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(224, 20, 60, 0.4);
+    }
 </style>
 
 <body>
@@ -1142,8 +1765,102 @@
         </div>
     </section>
     <section class="Project" id="project">
+        <div class="content-project">
+            <div class="project-header">
+                <h2>project</h2>
+                <div class="project-divider"></div>
+            </div>
 
+            <!-- Carousel -->
+            <div class="project-carousel">
+                <div class="project-slider" id="projectSlider">
+
+                    <!-- Slide 1: Elysia-realm (default pertama) -->
+                    <div class="project-slide">
+                        <div class="project-slide-image">
+                            <img src="project-2.png" alt="Elysia-realm project screenshot">
+                        </div>
+                        <div class="project-slide-content">
+                            <span class="project-slide-number">Project 01</span>
+                            <h3 class="project-slide-title">Elysia-realm</h3>
+                            <ul class="project-tags">
+                                <li>Bun</li>
+                                <li>Elysia.js</li>
+                                <li>PostgreSQL</li>
+                                <li>TypeScript</li>
+                                <li>JWT</li>
+                            </ul>
+                            <p class="project-slide-desc">Elysia-realm adalah sebuah project kedua saya yang berupa web
+                                baca novel dengan 2 jenis akun yaitu admin dan user, dan website ini menggunakan tema
+                                Character dari Honkai Impact 3 yaitu Elysia sang Herrscher of Human: Ego.</p>
+                            <div class="project-actions">
+                                <a href="https://github.com/satriyoo09/elysia.git" target="_blank" class="btn-github"><i
+                                        class="fa-brands fa-github"></i> GitHub</a>
+                                <a href="https://elysia-realm.vercel.app/" target="_blank" class="btn-live"><i
+                                        class="fa-solid fa-globe"></i> Link website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Mystery of Time -->
+                    <div class="project-slide">
+                        <div class="project-slide-image">
+                            <img src="mot.png" alt="Mystery of time project screenshot">
+                        </div>
+                        <div class="project-slide-content">
+                            <span class="project-slide-number">Project 02</span>
+                            <h3 class="project-slide-title">mystery of time</h3>
+                            <ul class="project-tags">
+                                <li>Godot</li>
+                            </ul>
+                            <p class="project-slide-desc">Mystery of Time adalah sebuah game visual novel yang pertama
+                                kali saya kembangkan menggunakan game engine Godot. Game ini merupakan game yang bertema
+                                mystery dan waktu.</p>
+                            <div class="project-actions">
+                                <a href="https://github.com/satriyoo09/mystery-of-time.git" target="_blank"
+                                    class="btn-github"><i class="fa-brands fa-github"></i> GitHub</a>
+                                <button class="btn-download" data-file="mystery of time.zip" data-filename="Mystery of Time.zip"><i
+                                        class="fa-solid fa-download"></i> Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="carousel-nav">
+                <button class="carousel-btn" id="prevBtn" aria-label="Previous project">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="carousel-dots" id="carouselDots"></div>
+                <span class="carousel-counter"><span class="current" id="currentSlide">1</span> / <span
+                        id="totalSlides">2</span></span>
+                <button class="carousel-btn" id="nextBtn" aria-label="Next project">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
     </section>
+
+    <!-- Download Overlay -->
+    <div class="download-overlay" id="downloadOverlay">
+        <div class="download-modal">
+            <div class="download-spinner" id="downloadSpinner">
+                <div class="spinner-ring"></div>
+                <span class="spinner-percent" id="spinnerPercent">0%</span>
+                <span class="spinner-check"><i class="fa-solid fa-check"></i></span>
+                <span class="spinner-error"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <div class="download-filename" id="downloadFilename">Downloading...</div>
+            <div class="download-status" id="downloadStatus">Mempersiapkan download...</div>
+            <div class="download-progress-track">
+                <div class="download-progress-bar" id="downloadProgressBar"></div>
+            </div>
+            <div class="download-size" id="downloadSize"></div>
+            <button class="download-close" id="downloadClose">Tutup</button>
+        </div>
+    </div>
 
     <script>document.addEventListener('DOMContentLoaded', () => {
 
@@ -1221,6 +1938,193 @@
 
                 observer.observe(cardSosmed);
             }
+
+            // ===================== PROJECT CAROUSEL =====================
+            const slider = document.getElementById('projectSlider');
+            const slides = slider.querySelectorAll('.project-slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('carouselDots');
+            const currentSlideEl = document.getElementById('currentSlide');
+            const totalSlidesEl = document.getElementById('totalSlides');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            totalSlidesEl.textContent = totalSlides;
+
+            // Generate dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Go to project ${i + 1}`);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            function updateCarousel() {
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                currentSlideEl.textContent = currentIndex + 1;
+
+                // Update dots
+                dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                const projectSection = document.getElementById('project');
+                const rect = projectSection.getBoundingClientRect();
+                // Only handle keys when project section is visible
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    if (e.key === 'ArrowRight') nextSlide();
+                    if (e.key === 'ArrowLeft') prevSlide();
+                }
+            });
+
+            // ===================== DOWNLOAD LOGIC =====================
+            const overlay = document.getElementById('downloadOverlay');
+            const spinner = document.getElementById('downloadSpinner');
+            const percentEl = document.getElementById('spinnerPercent');
+            const filenameEl = document.getElementById('downloadFilename');
+            const statusEl = document.getElementById('downloadStatus');
+            const progressBar = document.getElementById('downloadProgressBar');
+            const sizeEl = document.getElementById('downloadSize');
+            const closeBtn = document.getElementById('downloadClose');
+            let downloadController = null;
+
+            function formatBytes(bytes) {
+                if (bytes === 0) return '0 B';
+                const k = 1024;
+                const sizes = ['B', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+            }
+
+            function resetOverlay() {
+                spinner.className = 'download-spinner';
+                percentEl.textContent = '0%';
+                progressBar.style.width = '0%';
+                progressBar.classList.remove('complete', 'error');
+                sizeEl.textContent = '';
+                statusEl.textContent = 'Mempersiapkan download...';
+                filenameEl.textContent = 'Downloading...';
+            }
+
+            function closeOverlay() {
+                overlay.classList.remove('active');
+                if (downloadController) {
+                    downloadController.abort();
+                    downloadController = null;
+                }
+            }
+
+            closeBtn.addEventListener('click', closeOverlay);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeOverlay();
+            });
+
+            // Handle download button clicks
+            document.querySelectorAll('.btn-download').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const fileUrl = btn.getAttribute('data-file');
+                    const fileName = btn.getAttribute('data-filename') || fileUrl.split('/').pop();
+
+                    resetOverlay();
+                    filenameEl.textContent = fileName;
+                    overlay.classList.add('active');
+
+                    downloadController = new AbortController();
+
+                    try {
+                        const response = await fetch(fileUrl, { signal: downloadController.signal });
+
+                        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                        const contentLength = response.headers.get('content-length');
+                        const totalBytes = contentLength ? parseInt(contentLength, 10) : 0;
+                        const reader = response.body.getReader();
+                        const chunks = [];
+                        let receivedBytes = 0;
+
+                        statusEl.textContent = 'Mengunduh file...';
+
+                        while (true) {
+                            const { done, value } = await reader.read();
+                            if (done) break;
+
+                            chunks.push(value);
+                            receivedBytes += value.length;
+
+                            if (totalBytes > 0) {
+                                const percent = Math.round((receivedBytes / totalBytes) * 100);
+                                percentEl.textContent = percent + '%';
+                                progressBar.style.width = percent + '%';
+                                sizeEl.textContent = formatBytes(receivedBytes) + ' / ' + formatBytes(totalBytes);
+                            } else {
+                                percentEl.textContent = '...';
+                                sizeEl.textContent = formatBytes(receivedBytes) + ' downloaded';
+                                // indeterminate progress
+                                const fakePercent = Math.min(90, Math.round((receivedBytes / (receivedBytes + 50000)) * 100));
+                                progressBar.style.width = fakePercent + '%';
+                            }
+                        }
+
+                        // Complete!
+                        progressBar.style.width = '100%';
+                        progressBar.classList.add('complete');
+                        percentEl.textContent = '100%';
+                        spinner.classList.add('success');
+                        statusEl.textContent = 'Download selesai!';
+                        sizeEl.textContent = formatBytes(receivedBytes);
+
+                        // Trigger actual file save
+                        const blob = new Blob(chunks);
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = fileName;
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                        URL.revokeObjectURL(url);
+
+                        // Auto close after 2s
+                        setTimeout(() => {
+                            closeOverlay();
+                        }, 2000);
+
+                    } catch (err) {
+                        if (err.name === 'AbortError') {
+                            statusEl.textContent = 'Download dibatalkan.';
+                        } else {
+                            statusEl.textContent = 'Gagal mengunduh file.';
+                            console.error('Download error:', err);
+                        }
+                        spinner.classList.add('error');
+                        progressBar.classList.add('error');
+                    }
+                });
+            });
         });
     </script>
 </body>
