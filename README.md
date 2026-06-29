@@ -14,62 +14,31 @@
   <strong>Siswa Pengembangan Game di SMK Telkom Purwokerto | Game Dev Beginner</strong>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Theme-Dark%20Purple%20%26%20Crimson-e0143c?style=flat-deep&labelColor=0d0515" alt="Theme" />
-  <img src="https://img.shields.io/badge/Made%20With-HTML%20%2F%20CSS%20%2F%20JS-6366f1?style=flat-deep" alt="Made With" />
-</p>
+---
+
+## 👨‍💻 Tentang Saya
+
+Halo! Nama saya **Muhammad Satriyo Wicaksono** (biasa dipanggil Satriyo). Saya adalah seorang siswa di **SMK Telkom Purwokerto** jurusan **Pengembangan Game** (Angkatan 2025 – 2028).
+
+Saya memiliki ketertarikan yang besar terhadap dunia game, pemrograman, dan teknologi secara umum. Ketertarikan ini bermula sejak kecil karena sering bermain game seperti *Honkai: Star Rail* dan *Honor of Kings*, yang akhirnya memicu rasa penasaran saya tentang bagaimana game tersebut dirancang dan dikembangkan. Saat ini, saya fokus mempelajari pembuatan game serta website dari dasar.
 
 ---
 
-## 📖 Tentang Website Ini
+## 🚀 Hasil Project
 
-Website ini adalah **Portofolio Personal** saya yang dirancang dengan desain modern, futuristik, dan interaktif. Bertema warna **Gelap (Dark Purple #0d0515)** dengan aksen gradasi **Crimson (#e0143c)** dan **Indigo (#6366f1)** untuk memberikan kesan premium, estetik, dan hidup (sesuai dengan ketertarikan saya dalam pengembangan game).
+Berikut adalah beberapa project yang telah saya kembangkan dan saya tampilkan dalam portofolio ini:
 
-### ✨ Fitur Utama:
-- ⚡ **Desain Responsif & Premium:** Tampilan yang dioptimalkan untuk mobile maupun desktop dengan efek kaca (*glassmorphism*) dan efek hover interaktif.
-- 🎨 **Typing Effect:** Animasi ketik pada bagian hero section untuk menampilkan perkenalan singkat.
-- 🎠 **Project Slider Carousel:** Komponen slider interaktif untuk menjelajahi daftar project yang pernah saya buat, lengkap dengan kontrol keyboard (panah kiri/kanan).
-- 📥 **Interactive Download Simulator:** Simulasi modal unduhan interaktif dengan *progress bar* real-time untuk mengunduh game buatan saya.
-- 📬 **Staggered Social Media Cards:** Efek animasi kartu sosial media ketika di-scroll (*Intersection Observer*).
+### 1. 📖 Elysia-realm (Web Novel Reader)
+* **Deskripsi:** Sebuah website membaca novel interaktif yang terinspirasi dari karakter Elysia (*Herrscher of Human: Ego*) dari game *Honkai Impact 3rd*. Memiliki fitur otentikasi akun untuk tipe admin dan user.
+* **Tech Stack:** Bun, Elysia.js, PostgreSQL, TypeScript, JWT.
+* **Link:** [Elysia-realm Website](https://elysia-realm.vercel.app/) | [GitHub Repositori](https://github.com/satriyoo09/elysia.git)
 
----
+### 2. ⏳ Mystery of Time (Visual Novel Game)
+* **Deskripsi:** Game visual novel bertema misteri dan waktu. Ini merupakan game pertama yang saya buat dan kembangkan secara mandiri menggunakan Godot Engine.
+* **Tech Stack:** Godot Engine (GDScript).
+* **Link:** [GitHub Repositori](https://github.com/satriyoo09/mystery-of-time.git)
 
-## 🛠️ Teknologi yang Digunakan
-
-| Komponen | Teknologi | Deskripsi |
-| :--- | :--- | :--- |
-| **Struktur** | `HTML5` | Mark-up semantik untuk struktur halaman yang SEO-friendly. |
-| **Gaya & Layout** | `Vanilla CSS3` | Kustomisasi variabel CSS, animasi keyframes, efek neon, dan flexbox/grid. |
-| **Logika & Animasi** | `JavaScript (ES6+)` | Mengatur transisi navbar saat scroll, slider project, animasi mengetik, dan overlay unduhan. |
-| **Ikon** | `Font Awesome v6.5.1` | Ikon pelengkap di seluruh bagian tombol dan kartu sosial media. |
-
----
-
-## 🚀 Project Saya
-
-Di dalam portofolio ini, saya menampilkan 2 project utama yang telah saya kembangkan:
-
-### 1. 📖 Elysia-realm
-* **Kategori:** Web Platform (Baca Novel)
-* **Tema:** Elysia - Herrscher of Human: Ego (*Honkai Impact 3rd*)
-* **Tech Stack:** 
-  <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&logo=bun&logoColor=white" /> <img src="https://img.shields.io/badge/Elysia.js-009688?style=flat-square" /> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" /> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" /> <img src="https://img.shields.io/badge/JWT-black?style=flat-square&logo=JSON%20web%20tokens" />
-* **Deskripsi:** Website membaca novel interaktif dengan sistem login untuk User dan Admin.
-* **Link Project:** [Elysia-realm di Vercel](https://elysia-realm.vercel.app/) | [Repositori GitHub](https://github.com/satriyoo09/elysia.git)
-
-### 2. ⏳ Mystery of Time
-* **Kategori:** Game Development (Visual Novel)
-* **Tema:** Misteri dan Waktu
-* **Tech Stack:** 
-  <img src="https://img.shields.io/badge/Godot%20Engine-478CBF?style=flat-square&logo=godotengine&logoColor=white" />
-* **Deskripsi:** Game Visual Novel pertama saya yang dikembangkan menggunakan Godot Engine, mengeksplorasi cerita seputar misteri dan manipulasi waktu.
-* **Repositori GitHub:** [Mystery of Time di GitHub](https://github.com/satriyoo09/mystery-of-time.git)
-
----
-
-## 📸 Tampilan Pratinjau (Preview)
-
-Berikut adalah beberapa gambar aset dan project yang ada di portofolio ini:
+### 📸 Tampilan Preview Project:
 
 <table align="center">
   <tr>
@@ -77,20 +46,10 @@ Berikut adalah beberapa gambar aset dan project yang ada di portofolio ini:
     <td align="center"><b>Mystery of Time</b></td>
   </tr>
   <tr>
-    <td><img src="project-2.png" width="350px" alt="Elysia Realm" style="border-radius: 10px;" /></td>
-    <td><img src="mot.png" width="350px" alt="Mystery of Time" style="border-radius: 10px;" /></td>
+    <td><img src="project-2.png" width="380px" alt="Elysia Realm" style="border-radius: 10px; border: 1px solid #e0143c;" /></td>
+    <td><img src="mot.png" width="380px" alt="Mystery of Time" style="border-radius: 10px; border: 1px solid #6366f1;" /></td>
   </tr>
 </table>
-
----
-
-## 📬 Hubungi & Ikuti Saya
-
-Silakan hubungi saya melalui salah satu media sosial berikut:
-
-* **Instagram:** [@satriyow_](https://instagram.com/satriyow_)
-* **Facebook:** [Muhammad Satriyo](https://www.facebook.com/share/1Huxezk3HW/)
-* **GitHub:** [satriyoo09](https://github.com/satriyoo09)
 
 ---
 
