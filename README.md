@@ -18,7 +18,7 @@
 
 ## 👨‍💻 Tentang Saya
 
-Halo! Nama saya **Muhammad Satriyo Wicaksono** (biasa dipanggil Satriyo). Saya adalah seorang siswa di **SMK Telkom Purwokerto** jurusan **Pengembangan Game** (Angkatan 2025 – 2028).
+Halo! Nama saya **Muhammad Satriyo Wicaksono** (biasa dipanggil Satriyo). Saya adalah seorang siswa di **SMK Telkom Purwokerto** jurusan **Pengembangan Game**.
 
 Saya memiliki ketertarikan yang besar terhadap dunia game, pemrograman, dan teknologi secara umum. Ketertarikan ini bermula sejak kecil karena sering bermain game seperti *Honkai: Star Rail* dan *Honor of Kings*, yang akhirnya memicu rasa penasaran saya tentang bagaimana game tersebut dirancang dan dikembangkan. Saat ini, saya fokus mempelajari pembuatan game serta website dari dasar.
 
